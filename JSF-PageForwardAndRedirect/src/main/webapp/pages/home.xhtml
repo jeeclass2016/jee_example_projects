@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+    <h:body>
+    	<h1>This is home page in JSF Forward vs Redirect example</h1>
+    	
+		<h:form>
+			<h3>Forward</h3>
+    	   	<h:commandButton action="page1" value="Page1" />
+    	   	 <h3>Redirect in JSF file</h3>
+    		<h:commandButton action="page1?faces-redirect=true" value="Page1" />
+    		<h3>Redirect in faces-config.xml</h3>
+    		<h:commandButton action="page2" value="Page2" />
+		</h:form>
+    </h:body>
+</html>

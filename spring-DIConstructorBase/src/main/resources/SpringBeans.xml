@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="payment" class="com.vietsci.Payment">
+		<constructor-arg ref="order"/>
+	</bean>
+	
+	<bean id="order" class="com.vietsci.Order" >
+		<property name="orderId" value="A001" />
+		<property name="product" value="GALAXY S7" />
+		<property name="price" value="1000" />
+		<property name="quantity" value="1" />
+	</bean>
+
+</beans>

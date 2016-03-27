@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+    
+	<navigation-rule>
+		<from-view-id>/pages/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>payment</from-outcome>
+			<if>#{navigationController.orderQty&lt;100}</if> 
+			<to-view-id>/pages/payment/ordermore.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>payment</from-outcome>
+			<if>#{navigationController.registerCompleted}</if>
+			<to-view-id>/pages/payment/payment.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>payment</from-outcome>
+			<to-view-id>/pages/payment/register.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- This is equal to the following Java code : -->
+	<!-- 	
+	if (from-view-id == "start.xhtml"){
+	   if(from-outcome == "payment"){
+	      if(paymentController.orderQty < 100){
+		  	return "ordermore";
+	      }else if(paymentController.registerCompleted){
+		  	return "payment";
+	      }else{
+		  	return "register";
+	      }
+	   }
+	}
+	-->
+	
+</faces-config>

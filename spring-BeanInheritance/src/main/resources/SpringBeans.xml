@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<!-- this is Bean Definition Template -->
+	<bean id="profile" abstract="true">
+		<property name="rank" value="Giáo sư" />
+	</bean>
+
+	<!-- this is Bean Inheritance and also is the parent bean of other-->
+	<bean id="fatherBean" class="com.vietsci.Father" parent="profile">
+		<property name="familyName" value="Nguyễn" />
+		<property name="givenName" value="Lân" />
+	</bean>
+	
+	<!-- this is Bean Inheritance -->
+	<bean id="sonBean" class="com.vietsci.Son" parent="fatherBean">
+		<property name="givenName" value="Lân Dũng" />
+	</bean>
+
+</beans>
