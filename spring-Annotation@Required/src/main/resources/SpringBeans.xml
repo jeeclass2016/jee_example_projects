@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:annotation-config />
+
+   <!-- Definition for student bean -->
+   <bean id="student" class="com.vietsci.Student">
+      <property name="name"  value="Zara" />
+
+      <!-- try without passing age and check the result -->
+      <!-- property name="age"  value="11"-->
+   </bean>
+	
+</beans>
