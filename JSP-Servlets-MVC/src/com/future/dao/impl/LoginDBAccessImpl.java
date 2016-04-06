@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.future.dao.LoginDBAccess;
+import com.future.model.User;
 import com.future.utils.DBUtils;
 
 public class LoginDBAccessImpl implements LoginDBAccess{
 	
-	public boolean checkLoginUser(String userName, String password) {
+	public User getUserInfor(String userName, String password) {
 		String sql = "SELECT * FROM USER_TBL WHERE username=? AND password=?";
+		User user = new User();
 		
 		Connection conn = DBUtils.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -21,19 +23,21 @@ public class LoginDBAccessImpl implements LoginDBAccess{
 			preparedStatement.setString(2, password);
 			ResultSet rs = preparedStatement.executeQuery();
 			
-			if (rs.getString("username") != null) {
-				return true;
-			} 
+			if (rs.next()) {
+				user.setUserName(rs.getString("username"));
+				user.setAge(rs.getString("age"));
+				user.setMobile(rs.getString("mobile"));
+			}
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return false;
 		} finally {
 			DBUtils.closePreparedStatement(preparedStatement);
 			DBUtils.closeConnection(conn);
 		}
 		
-		return false;
+		return user;
 	}
+	
 
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2016 5:20:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.stock.StockDailyRecord" table="STOCK_DAILY_RECORD" optimistic-lock="version">
+        <id name="recordId" type="long">
+            <column name="RECORD_ID" precision="10" scale="0" />
+            <generator class="native">
+            	<param name="sequence">STOCK_DAILY_RECORD_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="stock" class="com.stock.Stock" fetch="select">
+            <column name="STOCK_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="priceOpen" type="big_decimal">
+            <column name="PRICE_OPEN" precision="6" />
+        </property>
+        <property name="priceClose" type="big_decimal">
+            <column name="PRICE_CLOSE" precision="6" />
+        </property>
+        <property name="priceChange" type="big_decimal">
+            <column name="PRICE_CHANGE" precision="6" />
+        </property>
+        <property name="changeDate" type="date">
+            <column name="CHANGE_DATE" length="7" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

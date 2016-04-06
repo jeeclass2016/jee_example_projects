@@ -1,6 +1,8 @@
 package com.future.dao;
 
+import com.future.model.User;
+
 public interface LoginDBAccess {
-	public boolean checkLoginUser(String userName, String password);
+	public User getUserInfor(String userName, String password);
 
 }
