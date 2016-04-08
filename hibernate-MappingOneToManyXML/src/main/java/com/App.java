@@ -55,7 +55,7 @@ public class App {
 					new BigDecimal("15"), new BigDecimal("5"), change_date2);
 			
 			stock.getStockDailyRecords().add(stockDailyRecord1);
-//			stock.getStockDailyRecords().add(stockDailyRecord2);
+			stock.getStockDailyRecords().add(stockDailyRecord2);
 			
 //			session.save(stockDailyRecord1);
 //			session.save(stockDailyRecord2);
@@ -85,8 +85,7 @@ public class App {
 			tx = session.beginTransaction();
 			
 			@SuppressWarnings("unchecked")
-			List<Stock> stocks = (List<Stock>) session.createQuery(
-					"FROM com.stock.Stock").list();
+			List<Stock> stocks = (List<Stock>) session.createQuery("FROM com.stock.Stock").list();
 			System.out.println("After gt list: " + stocks.size());
 			Set<StockDailyRecord> stockDailyRecords;
 			for (Stock stck : stocks) {

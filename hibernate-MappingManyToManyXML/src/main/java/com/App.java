@@ -21,7 +21,7 @@ public class App {
 		System.out.println("Hibernate many to many (XML mapping)");
 
 		App app = new App();
-		app.addStudent();
+//		app.addStudent();
 		app.listStudents();
 
 		System.out.println("Done");
@@ -48,7 +48,7 @@ public class App {
 			 */
 			student1.getSubjects().add(subject1);
 			student1.getSubjects().add(subject2);
-//			
+			
 			student2.getSubjects().add(subject1);
 			student2.getSubjects().add(subject3);
 			
@@ -109,9 +109,9 @@ public class App {
 						continue;
 					}
 					System.out.print("SUBJECT NAME: " + subject.getSubjectName());
-					System.out.print(" SUBJECT DESC: " + subject.getSubjectDesc());
+					System.out.println(" SUBJECT DESC: " + subject.getSubjectDesc());
 				}
-				System.out.println("*************************************************");
+				System.out.println("\n*************************************************");
 			}
 
 			tx.commit();

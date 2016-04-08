@@ -98,9 +98,9 @@ public class App {
 						continue;
 					}
 					System.out.print("SUBJECT NAME: " + subject.getSubjectName());
-					System.out.print(" SUBJECT DESC: " + subject.getSubjectDesc());
+					System.out.println(" SUBJECT DESC: " + subject.getSubjectDesc());
 				}
-				System.out.println("*************************************************");
+				System.out.println("\n*************************************************");
 			}
 
 			tx.commit();

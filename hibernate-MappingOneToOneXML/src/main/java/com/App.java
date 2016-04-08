@@ -1,5 +1,6 @@
 package com;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class App {
 		stock.setStockDetail(stockDetail);
 		stockDetail.setStock(stock);
 		
-//		app.addStock(stock, stockDetail);
+		app.addStock(stock, stockDetail);
 		app.listStocks();
 		
 		System.out.println("Done");
